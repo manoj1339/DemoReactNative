@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         width: WINDOW_WIDTH * 0.9,
         borderRadius: CARD_BORDER_RADIUS,
         overflow: 'hidden',
+        maxWidth: 400,
     },
     headerText: {
         fontSize: 18,
@@ -40,6 +41,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderTopWidth: 1,
         borderTopColor: '#fff',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
     },
     labelText: {
         fontSize: 10,

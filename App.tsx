@@ -5,16 +5,26 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
+
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-// components
+// navigation
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Card from '@components/Card';
+// screens
+import Home from '@screens/Home';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
     return (
-        <SafeAreaView style={{alignItems: 'center'}}>
-            <Card />
-        </SafeAreaView>
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Home" component={Home} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
 
