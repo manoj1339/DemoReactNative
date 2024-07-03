@@ -10,6 +10,8 @@ import React from 'react';
 import {styles} from './styles';
 import {IMAGES} from '@images';
 import {WINDOW_WIDTH} from '@utils/constants';
+// components
+import MyText from '@components/MyText';
 // Gestures
 import {
     GestureHandlerRootView,
@@ -105,7 +107,9 @@ const Card = ({
                     resizeMode="stretch"
                     style={[styles.container]}>
                     <View style={styles.upperSection}>
-                        <Text style={styles.headerText}>Bank of Designers</Text>
+                        <MyText fontWeight="bold" style={styles.headerText}>
+                            Bank of Designers
+                        </MyText>
                         <View style={styles.chipContactlessContainer}>
                             <Image
                                 source={IMAGES.chip}
@@ -118,21 +122,27 @@ const Card = ({
                                 style={styles.smallImage}
                             />
                         </View>
-                        <Text style={styles.cardNumber}>
+                        <MyText fontWeight="bold" style={styles.cardNumber}>
                             3234 8678 4234 7628
-                        </Text>
+                        </MyText>
                     </View>
 
                     <View style={styles.lowerSection}>
                         <View style={styles.firstBox}>
-                            <Text style={styles.labelText}>
+                            <MyText style={styles.labelText}>
                                 Card Holder name
-                            </Text>
-                            <Text style={styles.labelValue}>Maya Singh</Text>
+                            </MyText>
+                            <MyText fontWeight="bold" style={styles.labelValue}>
+                                Maya Singh
+                            </MyText>
                         </View>
                         <View style={styles.secondBox}>
-                            <Text style={styles.labelText}>Expiry Date</Text>
-                            <Text style={styles.labelValue}>08/24</Text>
+                            <MyText style={styles.labelText}>
+                                Expiry Date
+                            </MyText>
+                            <MyText fontWeight="bold" style={styles.labelValue}>
+                                08/24
+                            </MyText>
                         </View>
                         <Image
                             source={IMAGES.vendor}

@@ -7,9 +7,9 @@ import Card from '@components/Card';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {WINDOW_WIDTH} from '@utils/constants';
 import {useSharedValue} from 'react-native-reanimated';
+import FAB from '@components/FAB';
 
 const Fingerprint = () => {
-    const [cards, setCards] = useState(CARD_DATA);
     const sequence = useSharedValue(['1', '2', '3', '4']);
 
     const onCardChange = (resp: any) => {
@@ -21,7 +21,7 @@ const Fingerprint = () => {
             <ScrollView
                 style={styles.container}
                 contentContainerStyle={styles.contentContainer}>
-                {cards.map((item, index: number) => {
+                {CARD_DATA.map((item, index: number) => {
                     return (
                         <Card
                             key={item.id}
@@ -34,6 +34,7 @@ const Fingerprint = () => {
                     );
                 })}
             </ScrollView>
+            <FAB />
         </GestureHandlerRootView>
     );
 };
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flexGrow: 1,
-        paddingBottom: 50,
+        paddingBottom: 150,
         paddingTop: 50,
         minHeight: 500,
     },

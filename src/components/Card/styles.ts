@@ -12,8 +12,6 @@ export const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 18,
-        fontFamily: 'SpaceGrotesk',
-        fontWeight: 'bold',
         color: '#fff',
     },
     upperSection: {
@@ -50,7 +48,6 @@ export const styles = StyleSheet.create({
     },
     labelValue: {
         fontSize: 20,
-        fontWeight: 'bold',
         color: '#fff',
     },
     firstBox: {
