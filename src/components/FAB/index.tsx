@@ -1,13 +1,13 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 // icon
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const FAB = () => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container}>
             <Entypo name="plus" size={16} color={'#868A99'} />
-        </View>
+        </TouchableOpacity>
     );
 };
 
