@@ -45,12 +45,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#222222',
-        // alignItems: 'center',
-        // justifyContent: 'center',
     },
     contentContainer: {
         flexGrow: 1,
-        paddingBottom: 150,
+        paddingBottom: 300,
         paddingTop: 50,
         minHeight: 500,
     },

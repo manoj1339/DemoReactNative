@@ -13,11 +13,7 @@ import {WINDOW_WIDTH} from '@utils/constants';
 // components
 import MyText from '@components/MyText';
 // Gestures
-import {
-    GestureHandlerRootView,
-    GestureDetector,
-    Gesture,
-} from 'react-native-gesture-handler';
+import {GestureDetector, Gesture} from 'react-native-gesture-handler';
 // animation
 import Animated, {
     SharedValue,
@@ -52,12 +48,26 @@ const Card = ({
     sequence,
     ...props
 }: CardProps) => {
-    console.log(sequence.value);
+    const isDragging = useSharedValue(false);
     const translationX = useSharedValue(0);
     const topValue = useSharedValue(sequence?.value?.indexOf(id) * 50);
     const leftValue = useSharedValue(WINDOW_WIDTH * 0.05);
 
+    const longPressGesture = Gesture.LongPress()
+        .onStart(() => {
+            isDragging.value = true;
+        })
+        .minDuration(250);
+
     const panGesture = Gesture.Pan()
+        .manualActivation(true)
+        .onTouchesMove((_e, state) => {
+            if (isDragging.value) {
+                state.activate();
+            } else {
+                state.fail();
+            }
+        })
         .onChange(event => {
             if (sequence?.value?.indexOf(id) == 3) {
                 translationX.value = event.translationX;
@@ -70,7 +80,11 @@ const Card = ({
             } else {
                 translationX.value = withSpring(0);
             }
-        });
+            isDragging.value = false;
+        })
+        .simultaneousWithExternalGesture(longPressGesture);
+
+    const composedGesture = Gesture.Race(panGesture, longPressGesture);
 
     const cardAnimatedStyle = useAnimatedStyle(() => {
         return {
@@ -94,7 +108,7 @@ const Card = ({
     );
 
     return (
-        <GestureDetector gesture={panGesture}>
+        <GestureDetector gesture={composedGesture}>
             <Animated.View
                 style={[
                     cardAnimatedStyle,

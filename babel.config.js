@@ -17,6 +17,8 @@ module.exports = {
                     '@components': './src/components',
                     '@images': './src/images',
                     '@utils': './src/utils',
+                    '@types': './src/types',
+                    '@hoc': './src/hoc',
                 },
             },
         ],
